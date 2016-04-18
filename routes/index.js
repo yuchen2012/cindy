@@ -17,4 +17,5 @@ router.get('/logout',function(req,res){
 router.get('/home',function(req,res){
 	res.render('home',{title:'Home'})
 })
+
 module.exports = router;
