@@ -58,7 +58,7 @@ exports.loginCheck = function(username,pwd,res){
 		if(err){
 			console.log(err);
 		}else{
-			if(row[0].password == pwd) res.redirect('/home');
+			if(row[0].password == pwd) res.redirect('home');
 			else{
 				res.redirect('login');
 			}
@@ -78,7 +78,7 @@ exports.itemSetup = function(){
 }
 
 exports.addItem = function(data){
-	sql = 'INSERT INTO item(owner, blueprintID) VALUES (?, ?)';
+	sql = 'INSERT INTO item(owner, blueprint_id) VALUES (?, ?)';
 	runSql(sql,data);
 }
 
@@ -96,32 +96,50 @@ exports.showItem = function(p,count,res){
 
 
 /*
-blueprint table
+item_blueprint table
 */
 exports.blueprintSetup = function(){
-	db.run('CREATE TABLE IF NOT EXISTS blueprint(name VARCHAR(255) description TEXT, logo TEXT)');
+	db.run('CREATE TABLE IF NOT EXISTS item_blueprint(name VARCHAR(255), description TEXT, logo TEXT)');
 }
 
 exports.showBlueprint = function(p,count,res){
-	sql = 'SELECT * FROM blueprint';
+	sql = 'SELECT *, rowid FROM item_blueprint';
 	db.all(sql,function(err,row){
 		if(err){
 			console.log(err);
 		}else{
-			res.render('blueprint',{title:'blueprint management', data:row});
 			
+			
+			res.render('management/blueprint',{title:'blueprint management',data:row});
 		}
 	});
 }
 
-/*
-progress table
-*/
-
-/*
-chapter table
-*/
-exports.chapterSetup = function(){
-	db.run('CREATE TABLE IF NOT EXISTS chapter(name VARCHAR(255), txt TEXT)');
+exports.addBlueprint = function(data,res){
+	sql = 'INSERT INTO item_blueprint(name, description, logo) VALUES (?, ?, ?)';
+	runSql(sql,data);
+	res.redirect('blueprint');
 }
 
+exports.deleteBlueprint = function(data,res){
+	sql = 'DELETE FROM item_blueprint WHERE rowid = ?';
+	
+	runSql(sql,data);
+	res.redirect('/management/blueprint');
+}
+
+
+
+
+
+/*
+story_progress table
+*/
+
+/*
+story table
+*/
+
+/*
+page table
+*/

@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-// var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -10,7 +10,7 @@ var users = require('./routes/users');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var itemManagement = require('./routes/management/item');
-
+var blueprintManagement = require('./routes/management/blueprint');
 var app = express();
 
 // view engine setup
@@ -35,6 +35,8 @@ app.use('/register', register);
 app.use('/logout', routes);
 app.use('/home', routes);
 app.use('/management/item',itemManagement);
+app.use('/management/blueprint',blueprintManagement);
+app.use('/management/blueprint/delete',blueprintManagement);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
