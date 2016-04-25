@@ -35,9 +35,22 @@ exports.userSetup = function(){
 	db.run('CREATE TABLE IF NOT EXISTS user(username VARCHAR(255), email VARCHAR(255), password VARCHAR(255), friends TEXT)');
 }
 
-exports.addUser = function(data){
+exports.addUser = function(data,res,req){
+	
+	sql = 'SELECT password FROM user WHERE username = ?';
+	db.all(sql,data[0],function(err,row){
+		if(err){
+			console.log(err);
+		}else{
+			if(row.length>0){				
+				res.redirect('/register');
+			}
+		}
+	});	
 	sql = 'INSERT INTO user(username, email, password) VALUES (?, ?, ?)';
 	runSql(sql,data);
+	req.session.username = data[0];
+	res.redirect('/home');
 }
 
 
@@ -52,13 +65,17 @@ exports.updateUser = function(data){
 	runSql(sql,data);
 }
 
-exports.loginCheck = function(username,pwd,res){
+exports.loginCheck = function(username,pwd,res,req){
 	sql = 'SELECT password FROM user WHERE username = ?';
 	db.all(sql,username,function(err,row){
 		if(err){
 			console.log(err);
 		}else{
-			if(row[0].password == pwd) res.redirect('home');
+			if(row[0].password == pwd){
+				req.session.username = username;
+				res.redirect('home');
+				
+			}
 			else{
 				res.redirect('login');
 			}
@@ -67,8 +84,18 @@ exports.loginCheck = function(username,pwd,res){
 }
 
 exports.usernameCheck = function(username,res){
-	
+	sql = 'SELECT password FROM user WHERE username = ?';
+	db.all(sql,username,function(err,row){
+		if(err){
+			console.log(err);
+		}else{
+			if(row.length>0)res.send(true);
+			else res.send(false);
+		}
+	});
 }
+
+
 
 /*
 item table

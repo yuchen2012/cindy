@@ -6,16 +6,19 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Cindy' });
 });
 
-router.get('/login',function(req,res){
-	res.render('login',{title:'Sign in'})
-});
+
 
 router.get('/logout',function(req,res){
+	req.session.username = {};
 	res.redirect('/');
 });
 
 router.get('/home',function(req,res){
-	res.render('home',{title:'Home'})
+	if(!req.session.username){
+		res.redirect('/login');
+	}else{
+		res.render('home',{title:'home',username:req.session.username});
+	}
 })
 
 module.exports = router;
