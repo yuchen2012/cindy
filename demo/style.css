@@ -1,0 +1,117 @@
+body {
+	font-family: "Palatino";
+	background-color: #444444;
+}
+
+#container {
+	width: 800px;
+	margin: auto;
+	margin-top: 30px;
+}
+
+#main {
+	background-color: #ffffff;
+	height: 600px;
+	overflow-y: hidden;
+}
+
+.tab {
+	display: inline;
+	background-color: #ffff99;
+	margin-right: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.page {
+	height: 100%;
+	width: 100%;
+}
+
+.page-content {
+	vertical-align: middle;
+	padding-left: 80px;
+	padding-right: 80px;
+}
+
+.page-back {
+	text-align: center;
+	font-weight: bolder;
+}
+
+.page-action {
+	text-align: center;
+	font-weight: bolder;
+}
+
+.page-button {
+	font-size: 20px;
+	padding: 20px;
+	background-color: transparent;
+	border: 0px solid black;
+}
+
+.page-button:hover {
+	background: radial-gradient(circle, #eeee55 0%, transparent 50%);
+}
+
+.page-button:focus {
+	outline: 0;
+}
+
+.page-illust, .page-treasure {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.page-desc {
+	line-height: 150%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#register {
+	text-align: center;
+}
+
+#register-button {
+	font-size: 20px;
+	background-color: white;
+	border: 1px solid #aaaaaa;
+}
+
+#register-fields {
+	display: inline-block;
+	text-align: right;
+	background-color: #ffff99;
+	padding: 10px;
+}
+
+.form-field {
+	padding: 4px;
+}
+
+.treasure {
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-bottom: 40px;
+	display: inline-block;
+}
+
+#treasure-shell {
+	background-image: url("shell.png");
+}
+
+#treasure-bottle {
+	background-image: url("bottle.png");
+}
+
+#treasure-quill {
+	background-image: url("quill.png");
+}
+
+.treasure:hover {
+	background: radial-gradient(circle, #eeee55 0%, transparent 70%);
+}

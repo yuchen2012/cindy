@@ -1,0 +1,410 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Wendenland</title>
+	<meta name="description" content="The Wendenland">
+	<meta name="author" content="Willowby">
+
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="container">
+		<ul id="menu">
+			<li id="tab-world" class="tab">
+				<span>World</span>
+			</li>
+			<li id="tab-inventory" class="tab">
+				<span>Inventory</span>
+			</li>
+			<li id="tab-avatar" class="tab">
+				<span>Avatar</span>
+			</li>
+			<li id="tab-house" class="tab">
+				<span>House</span>
+			</li>
+		</ul>
+		<div id="main">
+
+			<table id="page-1" class="page">
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="mist.png" />
+							</div>
+							<p class="page-desc">
+								You open your eyes for the first time in a very long time. <br />
+								Around you swirls a thick white void, from which you can neither discern time nor place.
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-2" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="treasurechest1.png" />
+							</div>
+							<p class="page-desc">
+								The only thing you can see is a wooden chest rattling and banging at your side, the culprit that roused you from your slumber. It is of crude make, with a simple latch keeping its struggling contents inside. It won't endure the abuse for much longer.
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-3" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="page-action" data-audio="FALL_013.wav">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="treasurechest1.png" />
+							</div>
+							<p class="page-desc">
+								You fumble around with the latch for a moment. It's been a while since you've last used these hands, and you suspect they are not entirely yours. But finally you unhook the top. <br />
+								Before you can lift the lid, it bursts open from the inside.
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-4" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="moogle.gif" />
+							</div>
+							<p class="page-desc">
+								Out tumbles a small, feathery creature, sending up a bloom of dust. <br />
+								Without waiting to come to a stop, he leaps to his feet and shakes off more dust, making you cry a little. <br />
+								As he sheds his outer coat, however, he is not much changed. His natural color is rather unremarkable. More interesting are his horns, which reach as far as his body is tall, and burn white at the tips, complementing his long silver beard.
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-5" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="moogle.gif" />
+							</div>
+							<p class="page-desc">
+								When he finishes his dust-ridding jig, he turns to you and lets out a ha-hem! <br />
+								"You, traveller, are dead. Or, rather, once you were alive, and then you were dead, and now you are neither." <br />
+								"Most travellers are simply dead, because Goddess Amora destroyed the Wendenland." <br />
+								"But Goddess Amora will bring life to the Wendenland once more. And she has chosen you to be reborn into it!"
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-6" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="moogle.gif" />
+							</div>
+							<p class="page-desc">
+								"Oh." He scratches his head. "Introductions, introductions." <br />
+								"I am Majoo. Majoo the Fey. And you, traveller ... do you remember your name?"
+								<form id="register">
+									<div id="register-fields">
+										<div class="form-field">
+											<label>My name</label>
+											<input id="username"></input>
+										</div>
+										<div class="form-field">
+											<label>My secret</label>
+											<input id="password"></input>
+										</div>
+										<div class="form-field">
+											<label>My email</label>
+											<input id="email"></input>
+										</div>
+										<button id="register-button">Ok!</button>
+									</div>
+								</form>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-7" class="page">
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="moogle.gif" />
+							</div>
+							<p class="page-desc">
+								"Very good, very good!" he cries, revealing a smile full of purple gums. “I did not think it possible. You have a strong soul, traveller. Goddess Amora has chosen well.”
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-8" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="chest2.png" />
+							</div>
+							<p class="page-desc">
+								“Then let us commemorate your next life with a gift. Although, I suppose I cannot gift you what is already yours!” <br />
+								He brings out a chest of his own. This one is small enough to fit in his hand, with a simple circle carved on the lid. Had he been holding it all this time?
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-9" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="chest2.png" />
+							</div>
+							<p class="page-desc">
+								He tenses up for a minute, then lets out a great HA-HEM! A tiny key is expelled from his mouth. He slides it into chest keyhole without turning, and gently the lid rises. He beckons you to look inside … 
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-10" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-treasure">
+								<div class="treasure" id="treasure-shell">
+									<img src="shell_shadow.png" />
+								</div>
+								<div class="treasure" id="treasure-bottle">
+									<img src="bottle_shadow.png" />
+								</div>
+								<div class="treasure" id="treasure-quill">
+									<img src="quill_shadow.png" />
+								</div><br />
+								<img src="chest2.png" />
+							</div>
+							<p class="page-desc">
+								“Tell me, traveller, what do you see?”
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-11" class="page">
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="moogle.gif" />
+							</div>
+							<p class="page-desc">
+								He scratches his head. “It’s not much for a first gift, but it will have to do.” <br />
+								“After you died, your belongings were buried with you, so they will be coming with you to the new world. Someone must have loved you very much … ” He shakes his head. “But those memories are lost to you now.” <br />
+								“Through this chest, more of us will come to return your belongings to you. But it is a great journey from there to here … perhaps a week’s worth of time.”
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-12" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th class="page-action">
+							<button class="page-button">&or;</button>
+						</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<div class="page-illust">
+								<img src="treasurechest1.png" />
+							</div>
+							<p class="page-desc">
+								“Now I must leave you. You have slept long, but perhaps you shall sleep just a bit more.” <br />
+								As if on cue, your eyes droop. You begin to drift back into a dreamless still. <br />
+								The last thing you remember is Majoo’s purple smile. “Then sleep well, [username].” <br />
+								And you do.
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table id="page-12" class="page">
+				<thead>
+					<tr>
+						<th class="page-back">
+							<button class="page-button">&and;</button>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="page-content">
+							<p class="page-desc">
+								Check back next week!
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+	<script src="script.js"></script>
+
+</body>
+</html>
