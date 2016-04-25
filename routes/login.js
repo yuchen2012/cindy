@@ -8,11 +8,13 @@ router.route('/')
 })
 .post(function(req,res){
 	db.connect();
-	db.loginCheck(req.body.username,req.body.password,res);
+	db.loginCheck(req.body.username,req.body.password,res,req);
 	
 	db.disconnect();
 		
 });
+
+
 
 
 module.exports = router;
