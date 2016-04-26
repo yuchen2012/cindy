@@ -39,19 +39,21 @@ var chooseTreasureIntervalId;
 
 var main = document.getElementById("main");
 
-var windAudio = new Audio("wind.wav");
-windAudio.loop = true;
-windAudio.play();
-
 window.addEventListener("focus", function() {
-	windAudio.play();
+	currAudio.play();
 });
 window.addEventListener("blur", function() {
-	windAudio.pause();
+	currAudio.pause();
 });
 
 var turnPageAudio = new Audio("turn_page.wav");
 var chimesAudio = new Audio("chimes.wav");
+
+var pageElems = document.getElementsByClassName("page");
+var currPage = 0;
+var currAudio = new Audio("wind.wav");
+currAudio.loop = true;
+currAudio.play();
 
 function scroll(dir) {
 
@@ -59,6 +61,15 @@ function scroll(dir) {
 	var elapsed = 0;
 	var startScrollY = main.scrollTop;
 	var currScrollY = startScrollY;
+
+	currPage += dir;
+	if (pageElems[currPage].dataset.audio) {
+		currAudio.pause();
+		currAudio = new Audio(pageElems[currPage].dataset.audio);
+		currAudio.loop = true;
+		currAudio.play();
+	}
+
 	scrollIntervalId = setInterval(function() {
 		var easet = EasingFunctions.easeOutCubic(elapsed/SCROLL_DURATION);
 		currScrollY = startScrollY + (easet * 600 * dir);
