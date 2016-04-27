@@ -14,6 +14,8 @@ var login = require('./routes/login');
 var register = require('./routes/register');
 var itemManagement = require('./routes/management/item');
 var blueprintManagement = require('./routes/management/blueprint');
+var dbcreate = require('./routes/management/dbcreate');
+
 var app = express();
 
 // view engine setup
@@ -47,8 +49,14 @@ app.use('/register/check',register);
 app.use('/logout', routes);
 app.use('/home', routes);
 app.use('/management/item',itemManagement);
+app.use('/management/show',itemManagement);
+app.use('/management/item/update',itemManagement);
+app.use('/management/item/delete',itemManagement);
 app.use('/management/blueprint',blueprintManagement);
+app.use('/management/blueprint/update',blueprintManagement);
 app.use('/management/blueprint/delete',blueprintManagement);
+app.use('/management/blueprint/create',blueprintManagement);
+app.use('/management/dbcreate',dbcreate);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

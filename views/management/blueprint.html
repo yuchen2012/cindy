@@ -3,11 +3,11 @@
 <div class="container">
 	<form role="form" method="post">
 		<fieldset>
-			<label>add new blueprint</label>
+			<label><a href="/management/item">Item</a></label>/<label>Blueprint</label>	
 			<div>
 				<div>
 				    <label>name:</label>
-					<input type="text" class="form-control" id="name" name="name" placeholder="name" required>
+					<input type="text" class="form-control" id="name" name="name" placeholder="name"  required>
 				</div>
 			</div>
 			
@@ -15,7 +15,7 @@
 				<label>description:</label>
 				<div>
 					
-					<textarea  rows="4" cols="50" id="description" name="description" placeholder="description"></textarea>
+					<textarea  rows="4" cols="50" id="description" name="description" placeholder="description"  ></textarea>
 				</div>
 			</div>
 			
@@ -26,7 +26,6 @@
 					<input type="text" class="form-control" id="logo" name="logo" placeholder="logo" required>
 				</div>
 			</div>
-			
 			
 			<div>
 				<div>
@@ -46,16 +45,22 @@
 <p></p>
 <div class="container">
 <table style="width:60%" border="1">
-<th>name</th><th>description</th><th>logo</th><th> picture</th><th>functions</th>
+<th>id</th><th>name</th><th>description</th><th>logo</th><th> picture</th><th>functions</th>
 <%for(var i=0;i<data.length;i++){%>
 <tr>
+<td><%=data[i].rowid%></td>
 <td><%=data[i].name%></td>
 <td  style="width:20%"><%=data[i].description%></td>
 <td><%=data[i].logo%></td>
 <td><img src='../images/items/<%=data[i].logo%>'></td>
-<td><a href="/management/blueprint/delete/<%=data[i].rowid%>">Delete</a></td>
+<td>
+<a href="/management/blueprint/delete/<%=data[i].rowid%>">Delete</a>/
+<a href="/management/blueprint/update/<%=data[i].rowid%>">Update</a>/
+<a href="/management/blueprint/create/<%=data[i].rowid%>">Create item</a>
+</td>
 </tr>
 <%}%>
 </table>
 </div>
+
 <% include footer.html %>

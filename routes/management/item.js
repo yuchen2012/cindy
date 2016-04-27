@@ -8,6 +8,13 @@ router.get('/',function(req,res){
 	db.disconnect();
 });
 
+router.route('/delete/:id').get(function(req,res){
+	db.connect();
+	db.deleteItem(req.params.id);
+	db.disconnect();
+	res.redirect('/management/item');
+});
+
 
 
 module.exports = router;
