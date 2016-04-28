@@ -111,6 +111,22 @@ exports.usernameCheck = function(username,res){
 }
 
 
+exports.showUser = function(p,count,res,func){
+	sql = 'SELECT *,rowid FROM user';
+	db.all(sql,function(err,row){
+		if(err){
+			console.log(err);
+		}else{
+			if(func=='management')
+				res.render('management/user',{title:'user management', data:row});
+			if(func=='show')
+				res.render('management/showuser',{title:'show user',data:row});
+			
+		}
+	});
+}
+
+
 
 /*
 item table
@@ -135,6 +151,10 @@ exports.updateItem = function(data){
 	runSql(sql,data);
 }
 
+exports.assignItem = function(data){
+	sql = 'UPDATE item SET user_id = ? WHERE rowid =?';
+	runSql(sql,data);
+}
 
 exports.showItem = function(p,count,res){
 	sql = 'SELECT *,rowid FROM item';
@@ -142,8 +162,21 @@ exports.showItem = function(p,count,res){
 		if(err){
 			console.log(err);
 		}else{
-			console.log(row);
+			//console.log(row);
 			res.render('management/item',{title:'item management', data:row});
+			
+		}
+	});
+}
+
+exports.lookupItem = function(rowid,res,func){
+	sql = 'SELECT item.rowid,item.*,item_blueprint.* FROM item INNER JOIN item_blueprint ON item.blueprint_id = item_blueprint.rowid AND item.rowid = ?';
+	db.all(sql,rowid,function(err,row){
+		if(err){
+			console.log(err);
+		}else{
+			//console.log(row);
+			res.render('management/itemassign',{title:'assign user', data:row});
 			
 		}
 	});

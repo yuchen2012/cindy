@@ -12,6 +12,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var userManagement = require('./routes/management/user');
 var itemManagement = require('./routes/management/item');
 var blueprintManagement = require('./routes/management/blueprint');
 var dbcreate = require('./routes/management/dbcreate');
@@ -48,10 +49,18 @@ app.use('/register', register);
 app.use('/register/check',register);
 app.use('/logout', routes);
 app.use('/home', routes);
+
+//user management
+app.use('/management/user',userManagement);
+app.use('/management/delete',userManagement);
+//app.use('/management/update',userManagement);
+
+//item management
 app.use('/management/item',itemManagement);
 app.use('/management/show',itemManagement);
-app.use('/management/item/update',itemManagement);
+app.use('/management/item/assign',itemManagement);
 app.use('/management/item/delete',itemManagement);
+//blueprint management
 app.use('/management/blueprint',blueprintManagement);
 app.use('/management/blueprint/update',blueprintManagement);
 app.use('/management/blueprint/delete',blueprintManagement);

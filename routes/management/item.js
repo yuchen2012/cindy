@@ -15,6 +15,17 @@ router.route('/delete/:id').get(function(req,res){
 	res.redirect('/management/item');
 });
 
+router.route('/assign/:id').get(function(req,res){
+	db.connect();
+	db.lookupItem(req.params.id,res);
+	db.disconnect();
+
+}).post(function(req,res){
+	db.connect();
+	db.assignItem([req.body.user_id,req.body.rowid]);
+	db.disconnect();
+	res.redirect('/management/item');
+});
 
 
 module.exports = router;
