@@ -7,14 +7,24 @@ var bodyParser = require('body-parser');
 var session = require('express-session')
 
 
-
+//game process
 var routes = require('./routes/index');
+
 var users = require('./routes/users');
+
+//sign in 
 var login = require('./routes/login');
 var register = require('./routes/register');
+
+
+
+// management
 var userManagement = require('./routes/management/user');
 var itemManagement = require('./routes/management/item');
 var blueprintManagement = require('./routes/management/blueprint');
+var storyManagement = require('./routes/management/story');
+var pageManagement = require('./routes/management/page');
+var progressManagement = require('./routes/management/progress');
 var dbcreate = require('./routes/management/dbcreate');
 
 var app = express();
@@ -50,21 +60,25 @@ app.use('/register/check',register);
 app.use('/logout', routes);
 app.use('/home', routes);
 
+
+
+
 //user management
 app.use('/management/user',userManagement);
 app.use('/management/delete',userManagement);
 //app.use('/management/update',userManagement);
-
 //item management
 app.use('/management/item',itemManagement);
-app.use('/management/show',itemManagement);
-app.use('/management/item/assign',itemManagement);
-app.use('/management/item/delete',itemManagement);
 //blueprint management
 app.use('/management/blueprint',blueprintManagement);
-app.use('/management/blueprint/update',blueprintManagement);
-app.use('/management/blueprint/delete',blueprintManagement);
-app.use('/management/blueprint/create',blueprintManagement);
+//story management
+app.use('/management/story',storyManagement);
+//page management
+app.use('/management/page',pageManagement);
+//progress management
+app.use('/management/progress',progressManagement);
+
+//create db
 app.use('/management/dbcreate',dbcreate);
 
 // catch 404 and forward to error handler

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../modules/db/db');
+db.connect();
 
 router.route('/')
 .get(function(req, res) {
@@ -12,17 +13,15 @@ router.route('/')
 		res.render('register',{title:'Sign up'});
 
 	}else{
-		db.connect();
+
 		db.addUser([req.body.username,req.body.email,req.body.password1],res,req);	
-		db.disconnect();
 	}
 		
 });
 
 router.route('/check/:username').get(function(req,res){
-	db.connect();
+
 	db.usernameCheck(req.params.username,res);
-	db.disconnect();
 	
 });
 	
