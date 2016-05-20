@@ -11,6 +11,7 @@ router.route('/')
 	db.progressSetup();
 	db.storySetup();
 	db.pageSetup();
+    db.mapSetup();
 	db.disconnect();
 	res.send('success');
 });

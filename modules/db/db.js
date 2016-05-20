@@ -261,3 +261,17 @@ exports.pageSetup = function(){
 	sql = 'CREATE TABLE IF NOT EXISTS page(page_index INT, story_id INT, text TEXT)';
 	create(sql);
 }
+
+/*
+map table
+*/
+exports.mapSetup = function() {
+    var deleteMapSql = 'DROP TABLE IF EXISTS map;';
+    var createMapSql = 'CREATE TABLE map(id INTEGER PRIMARY KEY, name VARCHAR(255) NOT NULL, description VARCHAR(255));';
+    var deletePointSql = 'DROP TABLE IF EXISTS map_point;';
+    var createPointSql = 'CREATE TABLE map_point(id INTEGER PRIMARY KEY, map_id INTEGER NOT NULL, x INTEGER NOT NULL, y INTEGER NOT NULL, name VARCHAR(255) NOT NULL, description VARCHAR(255), FOREIGN KEY(map_id) REFERENCES map(id));';
+    runSql(deleteMapSql);
+    runSql(createMapSql);
+    runSql(deletePointSql);
+    runSql(createPointSql);
+};
